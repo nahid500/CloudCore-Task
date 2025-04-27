@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Navbar() {
     return (
 
-        <nav className="bg-blue-700 text-white p-4 md:text-lg flex  md:px-28 justify-between items-center">
+        <nav className="bg-blue-700 text-white p-4 sticky top-0 z-2 shadow-md md:text-lg flex  md:px-28 justify-between items-center">
 
             <Link href={'/'} className=" md:text-2xl">
                 CloudCore
@@ -20,7 +20,7 @@ export default function Navbar() {
                 Cart
                 </div>
                 </Link>
-                <Link href={'/signup'} className="md:mx-3 bg-white text-black px-2 py-1 rounded-lg">SignUp</Link>
+                <Link href={'/signup'} className="md:mx-3 bg-white hover:bg-slate-200 text-black px-2 py-1 rounded-lg">SignUp</Link>
             </div>
         </nav>
     )
