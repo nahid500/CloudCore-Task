@@ -20,8 +20,8 @@ export default function ProductComponent(){
     
     return (
       
-      <main className="p-8 md:mx-8 lg:mx-32">
-          <h1 className="text-4xl text-blue-700 font-bold mb-6">Products</h1>
+      <div className="p-8 md:mx-8 lg:mx-32">
+          <h1 className="text-4xl text-blue-700 font-bold mb-6">Winter Products</h1>
 
           {status === 'loading' && <p>Loading...</p>}
           
@@ -36,7 +36,12 @@ export default function ProductComponent(){
                       className="w-full h-48 object-contain mb-4"
                       />
                     <h2 className=" text-center text-lg text-blue-700 font-semibold">{product.name}</h2>
-                    <p className="text-white text-lg text-center mt-2 bg-slate-400 rounded-lg">{product.price} TK</p>
+                    
+                    <div className='flex flex-col lg: justify-between pt-2 px-2'>
+                      <button className="text-white text-lg px-4 py-1 text-center mt-2 bg-green-600 rounded-lg">{product.price} TK</button>
+                      <button className="text-white text-lg px-4 py-1 text-center mt-2 bg-blue-600 rounded-lg">Add to Cart</button>
+                    </div>
+
                   </div>
                 </Link>
               ))}
@@ -45,6 +50,6 @@ export default function ProductComponent(){
               <p>No Products Available</p> 
           ): null
           }
-    </main>
+    </div>
     )
 }

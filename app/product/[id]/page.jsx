@@ -11,10 +11,10 @@ export default function ProductDetail() {
   const { items, status } = useSelector((state) => state.products);
 
   useEffect(() => {
-    if (status === 'idle' || items.length === 0) {
+    if (status === 'idle') {
       dispatch(fetchProducts());
     }
-  }, [dispatch, status, items.length]);
+  }, [dispatch, status]);
 
   const product = items.find(item => item.id === parseInt(id));
 
@@ -31,16 +31,16 @@ export default function ProductDetail() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center bg-gray-200">
             <img
               src={`https://admin.refabry.com/storage/product/${product.image}`}
               alt={product.name}
-              className="h-96 w-full object-contain border rounded-lg shadow"
+              className="h-96 w-full object-contain border rounded-lg"
               />
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold">{product.name}</h1>
+            <h1 className="text-3xl text-blue-700 font-bold">{product.name}</h1>
 
               <p className="text-lg">
                 {product.short_desc.split(/\r?\n/).map((desc, index) => (
@@ -72,7 +72,7 @@ export default function ProductDetail() {
           )
           }
           
-        <button className="mt-6 bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition">
+        <button className="mt-6 bg-blue-700 text-lg text-white px-6 py-3 rounded hover:bg-blue-500 transition">
           Add to Cart
         </button>
 

@@ -7,8 +7,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
         const res = await axios.get('https://admin.refabry.com/api/all/product/get');
         return res.data.data.data;
     } catch (error) {
-        console.error('Failed to fetch products:', error);
-        throw error;
+        console.log(error);
     }
 });
 
@@ -25,7 +24,7 @@ const productsSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(fetchProducts.fulfilled, (state, action) => {
-                state.items = action.payload || []; 
+                state.items = action.payload; 
                 state.status = 'succeeded';
             })
             .addCase(fetchProducts.rejected, (state) => {
