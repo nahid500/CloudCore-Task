@@ -15,9 +15,9 @@ export default function Footer(){
             <div className="mt-4">
                 <ul>
                     <li><Link href={'/'}>Home</Link></li>
-                    <li><Link href={'/'}>About Us</Link></li>
-                    <li><Link href={'/'}>Career</Link></li>
-                    <li><Link href={'/'}>Contact</Link></li>
+                    <li><Link href={'/about'}>About Us</Link></li>
+                    <li><Link href={'/career'}>Career</Link></li>
+                    <li><Link href={'/contact'}>Contact</Link></li>
                 </ul>
             </div>
 

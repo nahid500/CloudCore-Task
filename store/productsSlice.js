@@ -11,15 +11,28 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
     }
 });
 
+export const placeOrder = createAsyncThunk('order/placeOrder', async (data) => {
+    try {
+        const res = await axios.post('https://admin.refabry.com/api/public/order/create', data);
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
 const productsSlice = createSlice({
     name: "products",
     initialState: {
         items: [],  
-        status: 'idle'
+        status: 'idle',
+        orderStatus: 'idle',
+        orderData: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
+        //fetch
             .addCase(fetchProducts.pending, (state) => {
                 state.status = 'loading';
             })
@@ -29,8 +42,28 @@ const productsSlice = createSlice({
             })
             .addCase(fetchProducts.rejected, (state) => {
                 state.status = 'failed';
-            });
+            })
+
+
+         //order
+            .addCase(placeOrder.pending, (state) => {
+                state.orderStatus = 'loading';
+            })
+            .addCase(placeOrder.fulfilled, (state, action) => {
+                state.orderStatus = 'succeeded';
+                state.orderData = action.payload;
+            })
+            .addCase(placeOrder.rejected, (state) => {
+                state.orderStatus = 'failed';
+            })
+
     },
 });
+
+
+
+
+
+
 
 export default productsSlice.reducer;
