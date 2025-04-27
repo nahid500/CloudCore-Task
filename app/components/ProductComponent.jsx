@@ -38,7 +38,7 @@ export default function ProductComponent(){
                     <h2 className=" text-center text-lg text-blue-700 font-semibold">{product.name}</h2>
                     
                     <div className='flex flex-col lg: justify-between pt-2 px-2'>
-                      <button className="text-white text-lg px-4 py-1 text-center mt-2 bg-green-600 rounded-lg">{product.price} TK</button>
+                      <button className="text-white text-lg px-4 py-1 text-center mt-2 bg-gray-400 rounded-lg">{product.price} TK</button>
                       <button className="text-white text-lg px-4 py-1 text-center mt-2 bg-blue-600 rounded-lg">Add to Cart</button>
                     </div>
 
